@@ -17,7 +17,7 @@ const sportRouter = require('./routers/sport.router')
 app.use('/', sportRouter)
 
 // Default
-app.get('/', (req,res) => {s
+app.get('/', (req,res) => {
     res.status(200).end('Accueil')
 })
 

@@ -34,6 +34,11 @@ class SportService {
     async getSportByName(sportName) {
         return Sport.findOne({name: sportName})
     }
+
+    async getSportsOfAthlete(athleteId){
+        console.log(athleteId);
+        return Sport.find({ athletes: athleteId })
+    }
 }
 
 module.exports = SportService

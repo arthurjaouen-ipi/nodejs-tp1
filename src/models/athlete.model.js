@@ -8,4 +8,5 @@ const athleteSchema = new Schema({
     country: String
 });
 
+
 module.exports = mongoose.model('athlete', athleteSchema);

@@ -29,7 +29,7 @@ class SportController {
     // Update sport
     async update(req, res) {
         const sport = await this.sportService.update(req.params.sportId, req.body)
-        res.status(200).end()
+        res.status(200).send(sport)
     }
 
     // All sports
