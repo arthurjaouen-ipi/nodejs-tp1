@@ -1,21 +1,20 @@
 // Init
 const express = require('express')
+const parth = require('path')
 const app = express()
 app.use(express.json())
 
 // DB
-const connect = require('./database/mongodb');
-connect();
+const connect = require('./database/mongodb')
+connect()
 
-// API
-require('./api/admin.api.js')(app)
-require('./api/athlete.api.js')(app)
-require('./api/sport.api.js')(app)
-
-// Default
-app.get('/', (req,res) => {
-    res.end('Accueil')
-})
+// Routers
+const adminRouter = require('./routers/admin.router')
+app.use('/', adminRouter)
+const athleteRouter = require('./routers/athlete.router')
+app.use('/', athleteRouter)
+const sportRouter = require('./routers/sport.router')
+app.use('/', sportRouter)
 
 // Start
 app.listen(8080, () => {
