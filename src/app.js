@@ -1,8 +1,12 @@
 // Init
 const express = require('express')
-const parth = require('path')
+const path = require('path')
 const app = express()
 app.use(express.json())
+
+// HBS
+app.set('view engine', 'hbs');
+app.set('views', path.join(__dirname, 'views'));
 
 // DB
 const connect = require('./database/mongodb')
@@ -18,7 +22,7 @@ app.use('/', sportRouter)
 
 // Default
 app.get('/', (req,res) => {
-    res.status(200).end('Accueil')
+    res.render('index', {});
 })
 
 // Start
