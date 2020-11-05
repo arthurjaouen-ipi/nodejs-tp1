@@ -9,11 +9,10 @@ class SportController {
 
     // Create sport
     async create(req, res) {
-        const exists = this.sportService.getSportByName(req.body.name)
-
+        const exists = await this.sportService.getSportByName(req.body.name)
         if(!exists) {
             await this.sportService.create(req.body.name)
-            res.status(200)
+            res.status(200).end()
         }
         else {
             console.log('Sport already exists in db.')
@@ -24,13 +23,13 @@ class SportController {
     // Delete sport
     async delete(req, res) {
         await this.sportService.delete(req.params.sportId)
-        res.status(200)
+        res.status(200).end()
     }
 
     // Update sport
     async update(req, res) {
         const sport = await this.sportService.update(req.params.sportId, req.body)
-        res.status(200)
+        res.status(200).end()
     }
 
     // All sports
@@ -47,21 +46,21 @@ class SportController {
 
     // All athletes of specific sport
     async getAthletesBySportId(req, res) {
-        const athletesId = await this.sportService.getAthletesBySportId(req.params.sportId)
-        const athletes = await this.athleteService.getAthletesById(athletesId)
+        const sport = await this.sportService.getSportById(req.params.sportId)
+        const athletes = await this.athleteService.getAthleteById(sport.athletes)
         res.status(200).send(athletes)
     }
 
     // Add athlete in sport
     async addAthleteToSport(req, res) {
         await this.sportService.addAthleteToSport(req.params.sportId, req.params.athleteId)
-        res.status(200)
+        res.status(200).end()
     }
 
     // Remove athlete from sport
     async deleteAthleteFromSport(req, res) {
         await this.sportService.deleteAthleteFromSport(req.params.sportId, req.params.athleteId)
-        res.status(200)
+        res.status(200).end()
     }
 }
 

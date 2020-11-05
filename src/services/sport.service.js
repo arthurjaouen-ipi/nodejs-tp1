@@ -8,31 +8,27 @@ class SportService {
     }
 
     async delete(sportId) {
-        await Sport.deleteOne()
+        await Sport.deleteOne({'_id': sportId})
     }
 
     async update(sportId, data) {
-        await Sport.updateOne({sportId: sportId}, data) 
+        await Sport.updateOne({'_id': sportId}, data) 
     }
 
     async getAllSports() {
-        return Sport.find({}).toArray()
+        return Sport.find({})
     }
 
     async getSportById(sportId) {
         return Sport.findById(sportId)
     }
 
-    async getAthletesBySportId(sportId) {
-        return Sport.findById(sportId).athletes
-    }
-
     async addAthleteToSport(sportId, athleteId) {
-        await Sport.updateOne({sportId: sportId}, {$push: {athletes: athleteId}}) 
+        await Sport.updateOne({'_id': sportId}, {$push: {athletes: athleteId}}) 
     }
 
     async deleteAthleteFromSport(sportId, athleteId) {
-        await Sport.updateOne({sportId: sportId}, {$pull: {athletes: athleteId}})
+        await Sport.updateOne({'_id': sportId}, {$pull: {athletes: athleteId}})
     }
 
     async getSportByName(sportName) {

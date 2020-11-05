@@ -7,7 +7,6 @@ class AthleteController {
 
     // Create athlete
     async create(req, res) {
-
         const newAthlete = {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
@@ -15,8 +14,6 @@ class AthleteController {
             country: req.body.country 
         };
 
-        console.log(req.body);
-        console.log(newAthlete);
         // TODO vérification de l'existence d'athlete
 
         const newVal = await this.athleteService.create(newAthlete)

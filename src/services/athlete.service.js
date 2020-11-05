@@ -14,6 +14,10 @@ class AthleteService {
         await newVal.save()
         return newVal
     }
+
+    async getAthleteById(athleteId) {
+        return Athlete.findById(athleteId)
+    }
 }
 
 module.exports = AthleteService
