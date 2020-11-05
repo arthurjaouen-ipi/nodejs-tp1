@@ -12,6 +12,10 @@ app.set('views', path.join(__dirname, 'views'));
 const connect = require('./database/mongodb')
 connect()
 
+// Models
+const Sport = require('./models/sport.model')
+const Athlete = require('./models/athlete.model')
+
 // Routers
 const adminRouter = require('./routers/admin.router')
 app.use('/', adminRouter)
@@ -20,19 +24,29 @@ app.use('/', athleteRouter)
 const sportRouter = require('./routers/sport.router')
 app.use('/', sportRouter)
 
-// Accueil
+// Default
 app.get('/', (req,res) => {
-    res.render('index', {});
+    res.redirect('/sports');
 })
 
 // Sports
-app.get('/sports', (req,res) => {
-    res.render('sports', {});
+app.get('/sports', async (req,res) => {
+    const title = 'Sports'
+    const sports = await Sport.find({})
+    res.render('sports', { sports, title });
 })
 
 // Athlètes
-app.get('/athletes', (req,res) => {
-    res.render('athletes', {});
+app.get('/athletes', async (req,res) => {
+    const title = 'Athlètes'
+    const athletes = await Athlete.find({})
+    res.render('athletes', { athletes, title });
+})
+
+// Pays
+app.get('/pays', (req,res) => {
+    const title = 'Pays'
+    res.render('pays', { title });
 })
 
 // Start
