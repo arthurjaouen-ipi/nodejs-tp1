@@ -16,6 +16,10 @@ app.use('/', athleteRouter)
 const sportRouter = require('./routers/sport.router')
 app.use('/', sportRouter)
 
+app.get('/', (req,res) => {s
+    res.end('Accueil')
+})
+
 // Start
 app.listen(8080, () => {
     console.log("Server running")

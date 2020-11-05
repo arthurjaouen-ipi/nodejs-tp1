@@ -5,27 +5,27 @@ class AdminController {
         this.adminService = new AdminService()
     }
 
-    // Create admin
+    // Create user
     async create(req, res) {
         
     }
 
-    // Delete admin
+    // Delete user
     async delete(req, res) {
         
     }
 
-    // Update admin
+    // Update user
     async update(req, res) {
         
     }
 
-    // All admin
-    async getAllAdmin(req, res) {
+    // All user
+    async getAllAdmins(req, res) {
         
     }
 
-    // Specific admin
+    // Specific user
     async getAdminById(req, res) {
         
     }

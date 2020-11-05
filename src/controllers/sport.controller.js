@@ -7,7 +7,12 @@ class SportController {
 
     // Create sport
     async create(req, res) {
-        
+        const sport = req.params.sport
+
+        // TODO vérification de l'existence du sport
+
+        const newVal = await this.sportService.create(sport)
+        res.send(newVal)
     }
 
     // Delete sport

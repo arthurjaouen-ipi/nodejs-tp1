@@ -3,11 +3,10 @@ const Sport = require('../models/sport.model')
 class SportService {
     constructor() {}
 
-    async create(sportId, sport) {
+    async create(sport) {
         const newVal = new Sport({
-            name: sport.name,
-            athletes: [],
-            _Id: sportId
+            name: sport,
+            athletes: []
         })
 
         await newVal.save()
