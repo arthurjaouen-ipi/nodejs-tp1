@@ -47,7 +47,7 @@ class SportController {
     // All athletes of specific sport
     async getAthletesBySportId(req, res) {
         const sport = await this.sportService.getSportById(req.params.sportId)
-        const athletes = await this.athleteService.getAthleteById(sport.athletes)
+        const athletes = await this.athleteService.getAthletesById(sport.athletes)
         res.status(200).send(athletes)
     }
 

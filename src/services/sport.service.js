@@ -35,8 +35,7 @@ class SportService {
         return Sport.findOne({name: sportName})
     }
 
-    async getSportsOfAthlete(athleteId){
-        console.log(athleteId);
+    async getSportsOfAthlete(athleteId) {
         return Sport.find({ athletes: athleteId })
     }
 }

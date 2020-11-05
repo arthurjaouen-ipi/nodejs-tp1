@@ -41,6 +41,10 @@ class AthleteService {
         return await Athlete.findById(athleteId)
     }
 
+    async getAthletesById(athleteId){
+        return await Athlete.find({"_id": athleteId})
+    }
+
     async getSportsByAthleteId(athleteId, sportId){
         return await Athlete.find({'_id': athleteId})
     }
