@@ -1,20 +1,23 @@
+// Init
 const express = require('express')
 const app = express()
-const path = require('path');
-
-// API
-require('./API/admin.js')(app)
-require('./API/athlete.js')(app)
-require('./API/sport.js')(app)
-
 app.use(express.json())
 
-// All admin
+// DB
+const connect = require('./db/mongodb');
+//connect()
+
+// API
+require('./api/admin.js')(app)
+require('./api/athlete.js')(app)
+require('./api/sport.js')(app)
+
+// Default
 app.get('/', (req,res) => {
     res.end('Accueil')
 })
 
-
+// Start
 app.listen(8080, () => {
     console.log("Server running")
 })
