@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
-const AthleteController = require('../controllers/admin.controller')
-const athleteController = new AdminController()
+const AthleteController = require('../controllers/athlete.controller')
+const athleteController = new AthleteController()
 
 // Create athlete
 router.post('/api/athletes', async (req,res) => {
