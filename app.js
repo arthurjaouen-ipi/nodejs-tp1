@@ -5,7 +5,7 @@ app.use(express.json())
 
 // DB
 const connect = require('./database/mongodb');
-//connect()
+connect();
 
 // API
 require('./api/admin.api.js')(app)
