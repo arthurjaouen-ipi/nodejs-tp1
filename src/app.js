@@ -20,9 +20,19 @@ app.use('/', athleteRouter)
 const sportRouter = require('./routers/sport.router')
 app.use('/', sportRouter)
 
-// Default
+// Accueil
 app.get('/', (req,res) => {
     res.render('index', {});
+})
+
+// Sports
+app.get('/sports', (req,res) => {
+    res.render('sports', {});
+})
+
+// Athlètes
+app.get('/athletes', (req,res) => {
+    res.render('athletes', {});
 })
 
 // Start
