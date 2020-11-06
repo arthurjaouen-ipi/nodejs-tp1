@@ -6,7 +6,8 @@ const athleteController = new AthleteController()
 
 // Create athlete
 router.post('/api/athletes', async (req,res) => {
-    athleteController.create(req, res)
+    await athleteController.create(req, res)
+    res.redirect('/athletes')
 })
 
 // Delete athlete

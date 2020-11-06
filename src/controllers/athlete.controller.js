@@ -19,7 +19,6 @@ class AthleteController {
             };
 
             const newVal = await this.athleteService.create(newAthlete)
-            res.send(newVal)
         } 
         else {
             console.log('Athlete already exists in db.')
