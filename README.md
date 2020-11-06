@@ -3,8 +3,9 @@
 # Instructions
 1. Clonez le répertoire
 2. Installez les dépendances du projet
-3. Démarrez le serveur (src/app.js)
-4. Le serveur est accessible [ici](http://localhost:8080/)
+3. Renseigner l'url de votre base mongodb dans la variable `mongodbLink` du fichier `src/database/mongodb.js`
+4. Démarrez le serveur (src/app.js)
+5. Le serveur est accessible [ici](http://localhost:8080/)
 
 * Collections :
     * Sports : `sports{_id, name, athletes}`

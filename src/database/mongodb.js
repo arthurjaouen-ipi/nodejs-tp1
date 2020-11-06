@@ -1,11 +1,10 @@
 const mongoose = require('mongoose')
 
-const password = '';
-const cluster = '';
+const mongodbLink = 'mongodb+srv://admin:rRc85A9fwtwX8vqb@cluster0.bpwvs.mongodb.net/Jeux_Olympiques?retryWrites=true&w=majority';
 
 async function connect() {
     try {
-        await mongoose.connect('mongodb+srv://admin:rRc85A9fwtwX8vqb@cluster0.bpwvs.mongodb.net/Jeux_Olympiques?retryWrites=true&w=majority', { useNewUrlParser: true });
+        await mongoose.connect(mongodbLink, { useNewUrlParser: true });
     } catch (err) {
         console.error('Couldn\'t establish connection with database.', err);
         throw err;
