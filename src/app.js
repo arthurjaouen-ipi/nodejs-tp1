@@ -35,10 +35,10 @@ app.get('/', (req,res) => {
 app.get('/sports', async (req,res) => {
     const title = 'Sports'
     const sports = await Sport.find({})
+
     for (let key in sports) {
         for(let key2 in sports[key].athletes) {
             sports[key].athletes[key2] = await Athlete.findById(sports[key].athletes[key2])
-            console.log(await Athlete.findById(sports[key].athletes[key2]))
         }
     }
 
@@ -48,7 +48,8 @@ app.get('/sports', async (req,res) => {
 // Athlètes
 app.get('/athletes', async (req,res) => {
     const title = 'Athlètes'
-    const athletes = await Athlete.find({})
+    let athletes = await Athlete.find({})
+
     res.render('athletes', { athletes, title });
 })
 
