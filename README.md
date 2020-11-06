@@ -1,5 +1,9 @@
 # Instructions
+1. Clonez le répertoire
+2. Installez les dépendances du projet
+3. Démarrez le serveur (src/app.js)
 
+* 
 
 
 # Checklist API
@@ -28,7 +32,6 @@
 * Modifier un utilisateur admin : `UPDATE /api/users/{userId}` :x:
 * Récupérer tous les utilisateurs admins : `GET /api/users` :x:
 * Récupérer un utilisateur admin : `GET /api/users/{userId}` :x:
-
 
 
 # Checklist fonctionnalités Web
