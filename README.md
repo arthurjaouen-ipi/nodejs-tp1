@@ -4,17 +4,17 @@
 
 # Checklist API
 ## Sport
-* Créé un sport : `POST /api/sports` :white_check_mark:
+* Créer un sport : `POST /api/sports` :white_check_mark:
 * Supprimer un sport : `DELETE /api/sports/{sportId}` :white_check_mark:
 * Modifier un sport : `UPDATE /api/sports/{sportId}` :white_check_mark:
 * Récupérer tous les sports : `GET /api/sports` :white_check_mark:
 * Récupérer un sport : `GET /api/sports/{sportId}` :white_check_mark:
 * Récupérer les athlètes liés à un sport : `GET /api/sports/{sportId}/athletes` :white_check_mark:
 * Ajouter un athlète à un sport : `POST /api/sports/{sportId}/athletes/{athleteId}` :white_check_mark:
-* Supprimé un athlète d'un sport : `DELETE /api/sports/{sportId}/athletes/{athleteId}` :white_check_mark:
+* Supprimer un athlète d'un sport : `DELETE /api/sports/{sportId}/athletes/{athleteId}` :white_check_mark:
 
 ## Athlete
-* Créé un athlète : `POST /api/athletes` :white_check_mark:
+* Créer un athlète : `POST /api/athletes` :white_check_mark:
 * Supprimer un athlète : `DELETE /api/athletes/{athleteId}` :white_check_mark:
 * Modifier un athlète : `UPDATE /api/athletes/{athleteId}` :white_check_mark:
 * Récupérer tous les athlètes : `GET /api/athletes` :white_check_mark:
@@ -23,7 +23,7 @@
 * Récupérer les athlètes appartenants à un pays : `G``ET /api/country/{countryCode}/athletes` :white_check_mark:
 
 ## Admin
-* Créé un utilisateur admin : `POST /api/users` :x:
+* Créer un utilisateur admin : `POST /api/users` :x:
 * Supprimer un utilisateur admin : `DELETE /api/users/{userId}` :x:
 * Modifier un utilisateur admin : `UPDATE /api/users/{userId}` :x:
 * Récupérer tous les utilisateurs admins : `GET /api/users` :x:
