@@ -1,0 +1,119 @@
+<form method="POST" action="/api/athletes" class="form-inline" style="margin-bottom: 15px">
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">Ajouter</button>
+    </div>
+</form>
+
+<div class="table-responsive">
+    <table class="table table-striped" style="border: 1px solid #454d55">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Prénom</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Genre</th>
+                <th scope="col">Nationalité</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each athletes}}
+            <tr id={{_id}}>
+                <td><input type="text" id="firstName" name="firstName" value="{{firstName}}" placeholder="{{firstName}}"></td>
+                <td><input type="text" id="lastName" name="lastName" value="{{lastName}}" placeholder="{{lastName}}"></td>
+                <td><input type="text" id="gender" name="gender" value="{{gender}}" placeholder="{{gender}}"></td>
+                <td><input type="text" id="country" name="country" value="{{country}}" placeholder="{{country}}"></td>
+                <td>
+                    <button class="btn btn-secondary" style="margin-right: 5px" onclick="$('.{{_id}}-sports').toggle()">Sports pratiqués</button>
+                    <button class="btn btn-danger" onclick="deleteAthlete('{{_id}}')">Supprimer</button>
+                </td>
+            </tr>
+            {{#each sports}}
+            <tr class="collapse {{../_id}}-sports" id="{{_id}}">
+                <td>{{name}}</td>
+                <td><button class="btn btn-warning" onclick="deleteAthleteFromSport('{{_id}}','{{../_id}}')">Supprimer le sport</button></td>
+            </tr>
+            {{/each}}
+            <tr class="collapse {{_id}}-sports">
+                <td><select calss="addSport">
+                        <option value="">Choisissez un sport</option>
+                        {{#each sportList}}
+                            <option value="{{_id}}">{{name}}</option>
+                        {{/each}}
+                    </select>
+                </td>
+                <td></td><td></td><td></td>
+                <td><button class="btn btn-success" onclick="addSport('{{_id}}')">Ajouter le sport</button></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    {{^athletes}}
+        <span>Pas de données</span>
+    {{/athletes}}
+</div>
+
+<script>
+    $(document).ready(function(){
+        let sportList = "";
+        {{#each sportList}}
+            sportList += "<option value='{{_id}}'>{{name}}</option>"
+        {{/each}}
+
+        $('.addSport').each(function(){
+            console.log('a')
+        })
+    })
+
+    function deleteAthlete(athleteId) {
+        $.ajax({
+            type: 'DELETE',
+            url: '/api/athletes/'+athleteId,
+            success: function(data) {
+                location.reload()
+            }
+        });
+    }
+
+    function updateAthlete(athleteId) {
+        let data = {}
+        $.ajax({
+            type: 'PUT',
+            url: '/api/sports/'+athleteId,
+            data: data
+        });
+    }
+
+    function deleteAthleteFromSport(sportId, athleteId) {
+        $.ajax({
+            type: 'DELETE',
+            url: '/api/sports/'+sportId+'/athletes/'+athleteId,
+            success: function(data) {
+                $('.'+athleteId+'-sports#'+sportId).remove()
+            }
+        });
+    }
+
+    function addSport(athleteId) {
+        let sportId = $('.'+athleteId+'-sports #addSport').val()
+
+        if(!sportId)
+            alert('Veuillez sélectionner un sport')
+        else if($('.'+athleteId+'-sports#'+sportId).length) {
+            alert('L\'athlète est déjà enregistré dans ce sport')
+            $('.'+athleteId+'-sports #addSport').val("")
+        }
+        else
+            $.ajax({
+                type: 'POST',
+                url: '/api/sports/'+sportId+'/athletes/'+athleteId,
+                success: function(data) {
+                    $('.'+athleteId+'-sports #addSport').parent().parent().before(`<tr class="collapse `+athleteId+`-sports show" id="`+sportId+`">
+                                                                                        <td>`+$('.'+athleteId+'-sports #addSport').find('option:selected').text()+`</td>
+                                                                                        <td></td><td></td><td></td>
+                                                                                        <td><button class="btn btn-warning" onclick="deleteAthleteFromSport('`+sportId+`','`+athleteId+`')">Supprimer le sport</button></td>
+                                                                                    </tr>`)
+                    $('.'+athleteId+'-sports #addSport').val("")
+                }
+            });
+    }
+</script>

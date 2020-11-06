@@ -50,21 +50,30 @@ app.get('/sports', async (req,res) => {
 app.get('/athletes', async (req,res) => {
     const title = 'Athlètes'
     let athletes = await Athlete.find({})
+    let sportList = await Sport.find({})
 
-    res.render('athletes', { athletes, title });
+    for (let key in athletes) {
+        athletes[key].sports = []
+        let sportsOfAthlete = await Sport.find({athletes: athletes[key]._id})
+
+        for(let key2 in sportsOfAthlete) {
+            athletes[key].sports.push(sportsOfAthlete[key2].name)
+        }
+    }
+
+    res.render('athletes', { athletes, sportList, title });
 })
 
 // Pays
 app.get('/pays', async (req,res) => {
     const title = 'Pays'
-    let country = await Athlete.find({}).distinct('country')
+    const countryUsed = await Athlete.find({}).distinct('country')
+    let country = []
 
-    for (let key in country){
-        console.log(await Athlete.find({country: country[key]}))
-        country[key] = {}
-        country[key].athletes = await Athlete.find({country: country[key]});
+    for (let key in countryUsed){
+        country.push({code: countryUsed[key], athletes: await Athlete.find({country: countryUsed[key]})})
     }
-    console.log(country);
+    console.log(country)
     res.render('pays', { country, title });
 })
 
