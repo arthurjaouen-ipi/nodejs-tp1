@@ -1,5 +1,7 @@
 # Instructions
 
+
+
 # Checklist API
 ## Sport
 * Créé un sport : `POST /api/sports` :white_check_mark:
@@ -11,7 +13,7 @@
 * Ajouter un athlète à un sport : `POST /api/sports/{sportId}/athletes/{athleteId}` :white_check_mark:
 * Supprimé un athlète d'un sport : `DELETE /api/sports/{sportId}/athletes/{athleteId}` :white_check_mark:
 
-# Athlete
+## Athlete
 * Créé un athlète : `POST /api/athletes` :white_check_mark:
 * Supprimer un athlète : `DELETE /api/athletes/{athleteId}` :white_check_mark:
 * Modifier un athlète : `UPDATE /api/athletes/{athleteId}` :white_check_mark:
@@ -20,11 +22,13 @@
 * Récupérer les sports liés à un athlète : `GET /api/athletes/{athleteId}/sports` :white_check_mark:
 * Récupérer les athlètes appartenants à un pays : `G``ET /api/country/{countryCode}/athletes` :white_check_mark:
 
-# Admin
+## Admin
 * Créé un utilisateur admin : `POST /api/users` :x:
 * Supprimer un utilisateur admin : `DELETE /api/users/{userId}` :x:
 * Modifier un utilisateur admin : `UPDATE /api/users/{userId}` :x:
 * Récupérer tous les utilisateurs admins : `GET /api/users` :x:
 * Récupérer un utilisateur admin : `GET /api/users/{userId}` :x:
+
+
 
 # Checklist fonctionnalités Web
