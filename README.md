@@ -11,10 +11,18 @@
     * Athlètes : `athletes{_id, firstName, lastName, gender, country}`
     * Utilisateurs admin : `admins{_id, username, password}`
 
-* Le site est composé de 3 pages :
+* Le site est composé de 4 pages :
     * Liste des sports
+        * Gestion des sports
+        * Athlète(s) pratiquant(s) le sport
     * Liste des athlètes
+        * Gestion des athlètes
+        * Sport(s) pratiqué(s) par l'athlète
+        * Gestion des sports pratiqués
     * Liste des pays
+        * Athlète(s) par pays
+    * Liste des admins
+        * Gestion des admins
 
 -----------
 
