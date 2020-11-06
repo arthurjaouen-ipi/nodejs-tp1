@@ -2,9 +2,15 @@
 1. Clonez le répertoire
 2. Installez les dépendances du projet
 3. Démarrez le serveur (src/app.js)
+4. Le serveur est accessible [ici](http://localhost:8080/)
 
-* 
+* Le site est composé de 4 pages :
+    * Liste des sports
+    * Liste des athlètes
+    * Liste des pays
+    * Liste des admins
 
+-----------
 
 # Checklist API
 ## Sports
@@ -26,12 +32,37 @@
 * Récupérer les sports liés à un athlète : `GET /api/athletes/{athleteId}/sports` :white_check_mark:
 * Récupérer les athlètes appartenants à un pays : `GET /api/country/{countryCode}/athletes` :white_check_mark:
 
-## Utilisateurs
-* Créer un utilisateur admin : `POST /api/users` :x:
-* Supprimer un utilisateur admin : `DELETE /api/users/{userId}` :x:
-* Modifier un utilisateur admin : `UPDATE /api/users/{userId}` :x:
-* Récupérer tous les utilisateurs admins : `GET /api/users` :x:
-* Récupérer un utilisateur admin : `GET /api/users/{userId}` :x:
+## Utilisateurs admin
+* Créer un utilisateur admin : `POST /api/users` :white_check_mark:
+* Supprimer un utilisateur admin : `DELETE /api/users/{userId}` :white_check_mark:
+* Modifier un utilisateur admin : `UPDATE /api/users/{userId}` :white_check_mark:
+* Récupérer tous les utilisateurs admins : `GET /api/users` :white_check_mark:
+* Récupérer un utilisateur admin : `GET /api/users/{userId}` :white_check_mark:
 
+-----------
 
 # Checklist fonctionnalités Web
+## Sports
+* Lister les sports :white_check_mark:
+* Ajouter un sport :white_check_mark:
+* Modifier un sport (nom) :white_check_mark:
+* Supprimer un sport :white_check_mark:
+* Lister les athlètes d'un sport :white_check_mark: 
+* Supprimer un athlète d'un sport :white_check_mark:
+
+## Athlètes
+* Lister les athlètes :x:
+* Ajouter un athlète :x:
+* Modifier un athlète :x:
+* Supprimer un athlète :x:
+* Lister les sports d'un athlète :x:
+* Ajouter un athlète à un sport :x:
+
+## Pays
+* Lister les athlètes par pays :x:
+
+## Utilisateurs admin
+* Lister les utilisateurs admins :x:
+* Ajouter un utilisateur admin :x:
+* Modifier un utilisateur admin (nom) :x:
+* Supprimer un utilisateur admin :x:
