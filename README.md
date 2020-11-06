@@ -4,11 +4,10 @@
 3. Démarrez le serveur (src/app.js)
 4. Le serveur est accessible [ici](http://localhost:8080/)
 
-* Le site est composé de 4 pages :
+* Le site est composé de 3 pages :
     * Liste des sports
     * Liste des athlètes
     * Liste des pays
-    * Liste des admins
 
 -----------
 
@@ -51,15 +50,15 @@
 * Supprimer un athlète d'un sport :white_check_mark:
 
 ## Athlètes
-* Lister les athlètes :x:
-* Ajouter un athlète :x:
-* Modifier un athlète :x:
-* Supprimer un athlète :x:
+* Lister les athlètes :white_check_mark:
+* Ajouter un athlète :white_check_mark:
+* Modifier un athlète :white_check_mark:
+* Supprimer un athlète :white_check_mark:
 * Lister les sports d'un athlète :x:
-* Ajouter un athlète à un sport :x:
+* Ajouter un athlète à un sport :white_check_mark:
 
 ## Pays
-* Lister les athlètes par pays :x:
+* Lister les athlètes par pays :white_check_mark:
 
 ## Utilisateurs admin
 * Lister les utilisateurs admins :x:
