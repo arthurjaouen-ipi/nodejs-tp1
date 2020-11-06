@@ -24,7 +24,7 @@
         </thead>
         <tbody>
             {{#each athletes}}
-            <tr id={{_id}}>
+            <tr id={{_id}} class="athlete">
                 <td><input type="text" id="firstName" name="firstName" value="{{firstName}}" placeholder="{{firstName}}"></td>
                 <td><input type="text" id="lastName" name="lastName" value="{{lastName}}" placeholder="{{lastName}}"></td>
                 <td><input type="text" id="gender" name="gender" value="{{gender}}" placeholder="{{gender}}"></td>
@@ -41,11 +41,8 @@
             </tr>
             {{/each}}
             <tr class="collapse {{_id}}-sports">
-                <td><select calss="addSport">
+                <td><select class="addSport">
                         <option value="">Choisissez un sport</option>
-                        {{#each sportList}}
-                            <option value="{{_id}}">{{name}}</option>
-                        {{/each}}
                     </select>
                 </td>
                 <td></td><td></td><td></td>
@@ -67,7 +64,11 @@
         {{/each}}
 
         $('.addSport').each(function(){
-            console.log('a')
+            $(this).append(sportList)
+        })
+
+        $('.athlete input').change(function(){
+            updateAthlete($(this).parent().parent().attr('id'))
         })
     })
 
@@ -83,9 +84,14 @@
 
     function updateAthlete(athleteId) {
         let data = {}
+
+        $('#'+athleteId+' input').each(function(){
+            data[$(this).attr('id')] = $(this).val()
+        })
+
         $.ajax({
             type: 'PUT',
-            url: '/api/sports/'+athleteId,
+            url: '/api/athletes/'+athleteId,
             data: data
         });
     }

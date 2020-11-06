@@ -73,8 +73,15 @@ app.get('/pays', async (req,res) => {
     for (let key in countryUsed){
         country.push({code: countryUsed[key], athletes: await Athlete.find({country: countryUsed[key]})})
     }
-    console.log(country)
+
     res.render('pays', { country, title });
+})
+
+app.get('/users', async (req,res) => {
+    const title = 'Utilisateurs admin'
+    const users = await Admin.find({})
+
+    res.render('users', { users, title });
 })
 
 // Start
