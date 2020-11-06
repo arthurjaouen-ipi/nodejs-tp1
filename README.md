@@ -1,18 +1,20 @@
+[Sujet](https://smichalet.github.io/cours-nodejs/cours/rendu1.html#introduction-et-presentation)
+
 # Instructions
 1. Clonez le répertoire
 2. Installez les dépendances du projet
 3. Démarrez le serveur (src/app.js)
 4. Le serveur est accessible [ici](http://localhost:8080/)
 
+* Collections :
+    * Sports : `sports{_id, name, athletes}`
+    * Athlètes : `athletes{_id, firstName, lastName, gender, country}`
+    * Utilisateurs admin : `admins{_id, username, password}`
+
 * Le site est composé de 3 pages :
     * Liste des sports
     * Liste des athlètes
     * Liste des pays
-
-* Collections :
-    * Sports : ``
-    * Athlètes : ``
-    * Utilisateurs admin : ``
 
 -----------
 
@@ -66,6 +68,7 @@
 * Lister les athlètes par pays :white_check_mark:
 
 ## Utilisateurs admin
+
 * Lister les utilisateurs admins :white_check_mark:
 * Ajouter un utilisateur admin :white_check_mark:
 * Modifier un utilisateur admin (nom) :white_check_mark:
