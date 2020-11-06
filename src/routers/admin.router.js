@@ -6,27 +6,27 @@ const adminController = new AdminController()
 
 // Create admin
 router.post('/api/users', async (req,res) => {
-        
+    adminController.create(req, res)
 })
 
 // Delete admin
 router.delete('/api/users/:userId', async (req,res) => {
-    
+    adminController.delete(req, res)
 })
 
 // Update admin
 router.put('/api/users/:userId', async (req,res) => {
-    
+    adminController.update(req, res)
 })
 
 // All admin
 router.get('/api/users', async (req,res) => {
-    
+    adminController.getAllAdmins(req, res)
 })
 
 // Specific admin
 router.get('/api/users/:userId', async (req,res) => {
-    
+    adminController.getAdminById(req, res)
 })
 
 module.exports = router

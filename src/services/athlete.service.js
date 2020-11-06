@@ -1,4 +1,3 @@
-const AthleteController = require('../controllers/athlete.controller')
 const Athlete = require('../models/athlete.model')
 
 class AthleteService {
@@ -45,7 +44,7 @@ class AthleteService {
         return await Athlete.find({"_id": athleteId})
     }
 
-    async getSportsByAthleteId(athleteId, sportId){
+    async getSportsByAthleteId(athleteId){
         return await Athlete.find({'_id': athleteId})
     }
 
