@@ -68,6 +68,6 @@
 ## Utilisateurs admin
 * Lister les utilisateurs admins :white_check_mark:
 * Ajouter un utilisateur admin :white_check_mark:
-* Modifier un utilisateur admin (nom) :x:
+* Modifier un utilisateur admin (nom) :white_check_mark:
 * Supprimer un utilisateur admin :white_check_mark:
 * Authentification / Sécurisation :x:
