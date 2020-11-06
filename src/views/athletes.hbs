@@ -37,6 +37,7 @@
             {{#each sports}}
             <tr class="collapse {{../_id}}-sports" id="{{_id}}">
                 <td>{{name}}</td>
+                <td></td><td></td><td></td>
                 <td><button class="btn btn-warning" onclick="deleteAthleteFromSport('{{_id}}','{{../_id}}')">Supprimer le sport</button></td>
             </tr>
             {{/each}}

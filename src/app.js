@@ -54,11 +54,13 @@ app.get('/athletes', async (req,res) => {
 
     let athletes = await Athlete.find({})
     for (let key in athletes) {
-        athletes[key].sports = []
-        let sportsOfAthlete = await Sport.find({athletes: athletes[key]._id})
+        let sportsOfAthlete = await Sport.find({athletes: String(athletes[key]._id)})
 
-        for(let key2 in sportsOfAthlete) {
-            athletes[key].sports.push(sportsOfAthlete[key2].name)
+        if(sportsOfAthlete) {
+            athletes[key].sports = []
+            for(let key2 in sportsOfAthlete) {
+                athletes[key].sports.push({_id: sportsOfAthlete[key2]._id, name: sportsOfAthlete[key2].name})
+            }
         }
     }
 
