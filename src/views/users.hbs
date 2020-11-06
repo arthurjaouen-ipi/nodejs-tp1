@@ -1,0 +1,43 @@
+<form method="POST" action="/api/users" class="form-inline" style="margin-bottom: 15px">
+    <div class="form-group">
+        <label for="name" style="margin-right: 5px">Ajouter un admin :</label>
+        <input type="text" id="username" name="username" class="form-control" style="margin-right: 5px" placeholder="Username">
+        <input type="password" id="password" name="password" class="form-control" style="margin-right: 5px" placeholder="Password">
+        <button type="submit" class="btn btn-success">Ajouter</button>
+    </div>
+</form>
+
+<div class="table-responsive">
+    <table class="table table-striped" style="border: 1px solid #454d55">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Username</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each users}}
+            <tr>
+                <td>{{username}}</td>
+                <td><button class="btn btn-danger" onclick="deleteUser('{{_id}}')">Supprimer</button></td>
+            </tr>
+
+            {{/each}}
+        </tbody>
+    </table>
+    {{^users}}
+        <span>Pas de données</span>
+    {{/users}}
+</div>
+
+<script>
+    function deleteUser(userId) {
+        $.ajax({
+            type: 'DELETE',
+            url: '/api/users/'+userId,
+            success: function(data) {
+                location.reload()
+            }
+        });
+    }
+</script>

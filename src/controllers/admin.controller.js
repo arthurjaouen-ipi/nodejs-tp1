@@ -15,7 +15,6 @@ class AdminController {
             };
 
             const newVal = await this.adminService.create(newAdmin)
-            res.send(newVal)
         }
         else {
             console.log('User already exists in db.')
