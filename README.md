@@ -24,6 +24,8 @@
     * Liste des admins
         * Gestion des admins
 
+:warning: N'ayant pas développé la partie authentification tous les utilisateurs peuvent modifier les données :warning:
+
 -----------
 
 # Checklist API
@@ -69,7 +71,7 @@
 * Ajouter un athlète :white_check_mark:
 * Modifier un athlète :white_check_mark:
 * Supprimer un athlète :white_check_mark:
-* Lister les sports d'un athlète :x:
+* Lister les sports d'un athlète :white_check_mark:
 * Ajouter un athlète à un sport :white_check_mark:
 
 ## Pays
