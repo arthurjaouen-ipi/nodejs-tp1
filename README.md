@@ -20,7 +20,7 @@
 * Récupérer tous les athlètes : `GET /api/athletes` :white_check_mark:
 * Récupérer un athlète : `GET /api/athletes/{athleteId}` :white_check_mark:
 * Récupérer les sports liés à un athlète : `GET /api/athletes/{athleteId}/sports` :white_check_mark:
-* Récupérer les athlètes appartenants à un pays : `G``ET /api/country/{countryCode}/athletes` :white_check_mark:
+* Récupérer les athlètes appartenants à un pays : `GET /api/country/{countryCode}/athletes` :white_check_mark:
 
 ## Admin
 * Créer un utilisateur admin : `POST /api/users` :x:
