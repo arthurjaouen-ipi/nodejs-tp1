@@ -107,25 +107,25 @@
     }
 
     function addSport(athleteId) {
-        let sportId = $('.'+athleteId+'-sports #addSport').val()
+        let sportId = $('.'+athleteId+'-sports .addSport').val()
 
         if(!sportId)
             alert('Veuillez sélectionner un sport')
         else if($('.'+athleteId+'-sports#'+sportId).length) {
             alert('L\'athlète est déjà enregistré dans ce sport')
-            $('.'+athleteId+'-sports #addSport').val("")
+            $('.'+athleteId+'-sports .addSport').val("")
         }
         else
             $.ajax({
                 type: 'POST',
                 url: '/api/sports/'+sportId+'/athletes/'+athleteId,
                 success: function(data) {
-                    $('.'+athleteId+'-sports #addSport').parent().parent().before(`<tr class="collapse `+athleteId+`-sports show" id="`+sportId+`">
-                                                                                        <td>`+$('.'+athleteId+'-sports #addSport').find('option:selected').text()+`</td>
+                    $('.'+athleteId+'-sports .addSport').parent().parent().before(`<tr class="collapse `+athleteId+`-sports show" id="`+sportId+`">
+                                                                                        <td>`+$('.'+athleteId+'-sports .addSport').find('option:selected').text()+`</td>
                                                                                         <td></td><td></td><td></td>
                                                                                         <td><button class="btn btn-warning" onclick="deleteAthleteFromSport('`+sportId+`','`+athleteId+`')">Supprimer le sport</button></td>
                                                                                     </tr>`)
-                    $('.'+athleteId+'-sports #addSport').val("")
+                    $('.'+athleteId+'-sports .addSport').val("")
                 }
             });
     }

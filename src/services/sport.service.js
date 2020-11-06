@@ -28,7 +28,10 @@ class SportService {
     }
 
     async deleteAthleteFromSport(sportId, athleteId) {
-        await Sport.updateOne({'_id': sportId}, {$pull: {athletes: athleteId}})
+        if(sportId)
+            await Sport.updateOne({'_id': sportId}, {$pull: {athletes: athleteId}})
+        else
+            await Sport.update({$pull: {athletes: athleteId}})
     }
 
     async getSportByName(sportName) {

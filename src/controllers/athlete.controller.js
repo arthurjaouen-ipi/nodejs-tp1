@@ -29,6 +29,7 @@ class AthleteController {
     // Delete athlete
     async delete(req, res) {
         await this.athleteService.delete(req.params.athleteId)
+        await this.sportService.deleteAthleteFromSport(null, req.params.athleteId)
         res.status(200).end()
     }
 

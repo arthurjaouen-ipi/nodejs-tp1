@@ -50,9 +50,9 @@ app.get('/sports', async (req,res) => {
 // Athlètes
 app.get('/athletes', async (req,res) => {
     const title = 'Athlètes'
-    let athletes = await Athlete.find({})
     let sportList = await Sport.find({})
 
+    let athletes = await Athlete.find({})
     for (let key in athletes) {
         athletes[key].sports = []
         let sportsOfAthlete = await Sport.find({athletes: athletes[key]._id})
