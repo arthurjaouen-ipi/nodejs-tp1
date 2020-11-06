@@ -17,11 +17,10 @@
         </thead>
         <tbody>
             {{#each users}}
-            <tr>
-                <td>{{username}}</td>
+            <tr id="{{_id}}" class="user">
+                <td><input id="username" name="username" value="{{username}}" placeholder="{{username}}"></td>
                 <td><button class="btn btn-danger" onclick="deleteUser('{{_id}}')">Supprimer</button></td>
             </tr>
-
             {{/each}}
         </tbody>
     </table>
@@ -31,6 +30,12 @@
 </div>
 
 <script>
+    $(document).ready(function(){
+        $('.user input').change(function(){
+            updateUser($(this).parent().parent().attr('id'))
+        })
+    })
+
     function deleteUser(userId) {
         $.ajax({
             type: 'DELETE',
@@ -38,6 +43,20 @@
             success: function(data) {
                 location.reload()
             }
+        });
+    }
+
+    function updateUser(userId) {
+        let data = {}
+
+        $('#'+userId+' input').each(function(){
+            data[$(this).attr('id')] = $(this).val()
+        })
+
+        $.ajax({
+            type: 'PUT',
+            url: '/api/users/'+userId,
+            data: data
         });
     }
 </script>
