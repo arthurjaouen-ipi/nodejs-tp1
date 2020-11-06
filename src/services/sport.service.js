@@ -31,7 +31,7 @@ class SportService {
         if(sportId)
             await Sport.updateOne({'_id': sportId}, {$pull: {athletes: athleteId}})
         else
-            await Sport.update({$pull: {athletes: athleteId}})
+            await Sport.updateMany({},{$pull: {athletes: athleteId}})
     }
 
     async getSportByName(sportName) {
