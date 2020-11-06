@@ -1,8 +1,10 @@
 // Init
-const express = require('express')
 const path = require('path')
+const express = require('express')
 const app = express()
 app.use(express.json())
+const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: true }))
 
 // HBS
 app.set('view engine', 'hbs');
@@ -44,9 +46,10 @@ app.get('/athletes', async (req,res) => {
 })
 
 // Pays
-app.get('/pays', (req,res) => {
+app.get('/pays', async (req,res) => {
     const title = 'Pays'
-    res.render('pays', { title });
+    const country = await Athlete.find({}).distinct('country')
+    res.render('pays', { country, title });
 })
 
 // Start

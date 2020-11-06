@@ -6,7 +6,8 @@ const sportController = new SportController()
 
 // Create sport
 router.post('/api/sports', async (req,res) => {
-    sportController.create(req, res)
+    await sportController.create(req, res)
+    res.redirect('/sports')
 })
 
 // Delete sport

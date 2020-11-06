@@ -1,0 +1,44 @@
+<form method="POST" action="/api/sports" class="form-inline" style="margin-bottom: 15px">
+    <div class="form-group">
+        <label for="name" style="margin-right: 5px">Ajouter un sport :</label>
+        <input type="text" id="name" name="name" class="form-control" style="margin-right: 5px">
+        <button type="submit" class="btn btn-success">Ajouter</button>
+    </div>
+</form>
+
+<div class="table-responsive">
+    <table class="table table-striped" style="border: 1px solid #454d55">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Sport</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each sports}}
+            <tr>
+                <td>{{name}}</td>
+                <td>
+                    <button class="btn btn-secondary" style="margin-right: 5px">Liste des athlètes</button>
+                    <button class="btn btn-danger" onclick="deleteSport('{{_id}}')">Supprimer</button>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    {{^sports}}
+        <span>Pas de données</span>
+    {{/sports}}
+</div>
+
+<script>
+    function deleteSport(sportId) {
+        $.ajax({
+            type: 'DELETE',
+            url: '/api/sports/'+sportId,
+            success: function(data) {
+                location.reload()
+            }
+        });
+    }
+</script>

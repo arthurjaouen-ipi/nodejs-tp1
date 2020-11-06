@@ -12,11 +12,9 @@ class SportController {
         const exists = await this.sportService.getSportByName(req.body.name)
         if(!exists) {
             await this.sportService.create(req.body.name)
-            res.status(200).end()
         }
         else {
-            console.log('Sport already exists in db.')
-            res.status(500).end()
+            console.log('Sport '+req.body.name+' already exists in db.')
         }
     }
 
