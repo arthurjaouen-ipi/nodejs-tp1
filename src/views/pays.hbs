@@ -9,7 +9,7 @@
         <tbody>
             {{#each country}}
             <tr>
-                <td>{{code}}</td>
+                <td style="font-weight: bold">{{code}}</td>
                 <td><button class="btn btn-secondary" style="margin-right: 5px" onclick="$('.{{code}}-athletes').toggle()">Liste des athlètes</button></td>
             </tr>
             {{#each athletes}}

@@ -9,6 +9,11 @@
     * Liste des athlètes
     * Liste des pays
 
+* Collections :
+    * Sports : ``
+    * Athlètes : ``
+    * Utilisateurs admin : ``
+
 -----------
 
 # Checklist API
@@ -61,7 +66,8 @@
 * Lister les athlètes par pays :white_check_mark:
 
 ## Utilisateurs admin
-* Lister les utilisateurs admins :x:
-* Ajouter un utilisateur admin :x:
+* Lister les utilisateurs admins :white_check_mark:
+* Ajouter un utilisateur admin :white_check_mark:
 * Modifier un utilisateur admin (nom) :x:
-* Supprimer un utilisateur admin :x:
+* Supprimer un utilisateur admin :white_check_mark:
+* Authentification / Sécurisation :x:
