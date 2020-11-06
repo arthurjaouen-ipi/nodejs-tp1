@@ -1,0 +1,33 @@
+<div class="table-responsive">
+    <table class="table table-striped" style="border: 1px solid #454d55">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Pays</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each country}}
+            <tr>
+                <td type="text" id="" value="">{{this}}</td>
+                <td></td>
+                <td>
+                    <button class="btn btn-secondary" style="margin-right: 5px">Liste des athlètes</button>
+                </td>
+            </tr>
+            {{#each athlete}}
+            <tr id="demo" class="{{../_id}}-athletes">
+                <td>{{firstName}} {{lastName}} {{country}}</td>
+            </tr>
+            {{/each}}
+            {{/each}}
+            
+            
+        </tbody>
+    </table>
+    {{^country}}
+        <span>Pas de données</span>
+    {{/country}}
+</div>
+
+<script>
+</script>

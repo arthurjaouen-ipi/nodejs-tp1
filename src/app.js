@@ -24,6 +24,7 @@ app.use('/', adminRouter)
 const athleteRouter = require('./routers/athlete.router')
 app.use('/', athleteRouter)
 const sportRouter = require('./routers/sport.router')
+const AthleteController = require('./controllers/athlete.controller')
 app.use('/', sportRouter)
 
 // Default
@@ -56,7 +57,14 @@ app.get('/athletes', async (req,res) => {
 // Pays
 app.get('/pays', async (req,res) => {
     const title = 'Pays'
-    const country = await Athlete.find({}).distinct('country')
+    let country = await Athlete.find({}).distinct('country')
+
+    for (let key in country){
+        console.log(await Athlete.find({country: country[key]}))
+        country[key] = {}
+        country[key].athletes = await Athlete.find({country: country[key]});
+    }
+    console.log(country);
     res.render('pays', { country, title });
 })
 
