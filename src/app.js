@@ -17,6 +17,7 @@ connect()
 // Models
 const Sport = require('./models/sport.model')
 const Athlete = require('./models/athlete.model')
+const Admin = require('./models/admin.model')
 
 // Routers
 const adminRouter = require('./routers/admin.router')
