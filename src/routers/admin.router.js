@@ -7,7 +7,7 @@ const adminController = new AdminController()
 // Create admin
 router.post('/api/users', async (req,res) => {
     await adminController.create(req, res)
-     res.redirect('/users')
+    res.redirect('/users')
 })
 
 // Delete admin
